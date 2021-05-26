@@ -12,9 +12,8 @@
     <td><%= m.place %></td>
     <td><%= m.number %></td>
     <td>
-        <%= link_to "変更", "" %>
-        <%= link_to "詳細", "" %>
-        <%= link_to "削除", "" %>
+        <%= link_to "変更", edit_manage_path(m.id) %>
+        <%= link_to "削除", manage_path(m.id), method: :delete %>
     </td>
 <tr>
 <% end %>

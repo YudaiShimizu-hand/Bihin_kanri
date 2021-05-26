@@ -14,6 +14,9 @@
      <header>
     <nav>
       <% if user_signed_in? %>
+      <%= link_to "トップ", pages_show_path %>
+      <%= link_to "在庫管理リスト", manages_path %>
+      <%= link_to "在庫登録フォーム", new_manage_path %>
       <%= link_to 'プロフィール', edit_user_registration_path %>
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
       <% else %>

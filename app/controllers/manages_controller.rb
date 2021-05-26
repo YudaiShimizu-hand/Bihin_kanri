@@ -14,19 +14,23 @@ class ManagesController < ApplicationController
     end
 
     def show
-
+        @manage = Manage.find(params[:id])
     end
 
     def edit
-
+        @manage = Manage.find(params[:id])
     end
 
     def update
-
+        @manage = Manage.find(params[:id])
+        @manage.update(manage_params)
+        redirect_to manages_path
     end
 
     def destroy
-        
+        manage = Manage.find(params[:id])
+        manage.destroy
+        redirect_to manages_path
     end
 
     private
