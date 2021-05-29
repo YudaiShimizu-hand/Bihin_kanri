@@ -33,8 +33,15 @@ class ManagesController < ApplicationController
         redirect_to manages_path
     end
 
+    def search
+        @manages = Manage.search(params[:keyword])
+        @keyword = params[:keyword]
+        render "index"
+    end
+
     private
     def manage_params
         params.require(:manage).permit(:name, :place, :number)
     end
+
 end

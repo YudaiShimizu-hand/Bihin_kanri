@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'pages/show'
   resources :manages
-  
+  get 'search' => 'manages#search'
 end
