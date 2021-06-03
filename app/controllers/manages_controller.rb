@@ -10,7 +10,7 @@ class ManagesController < ApplicationController
     def create
         @manage = Manage.new(manage_params)
         @manage.save
-        redirect_to manages_path
+        redirect_to manages_path, notice: "登録成功"
     end
 
     def show

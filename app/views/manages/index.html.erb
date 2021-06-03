@@ -3,8 +3,10 @@
     <%= f.text_field :keyword, value: @keyword %>
     <%= f.submit "検索" %>
   <% end %>
+  <p><%= @manages.count %>件見つかりました。</p>
 </div>
 <div class="manage-list">
+<%= flash[:notice] %>
 <table>
 <tr>
     <th>備品名</th>
