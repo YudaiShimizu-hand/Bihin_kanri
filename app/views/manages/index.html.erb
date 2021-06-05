@@ -20,8 +20,8 @@
     <td><%= m.place %></td>
     <td><%= m.number %></td>
     <td>
-        <%= link_to "変更", edit_manage_path(m.id) %>
-        <%= link_to "削除", manage_path(m.id), method: :delete %>
+        <button type="button" class="btn btn-outline-success"><%= link_to "変更", edit_manage_path(m.id) %></button>
+        <button type="button" class="btn btn-outline-danger"><%= link_to "削除", manage_path(m.id), method: :delete %></button>
     </td>
 <tr>
 <% end %>
