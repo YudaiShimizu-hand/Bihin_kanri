@@ -1,0 +1,29 @@
+<div class="search-form">
+  <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :keyword, value: @keyword %>
+    <%= f.submit "検索" %>
+  <% end %>
+  <p><%= @manages.count %>件見つかりました。</p>
+</div>
+<div class="manage-list">
+<%= flash[:notice] %>
+<table>
+<tr>
+    <th>備品名</th>
+    <th>収納場所</th>
+    <th>数量</th>
+    <th></th>
+</tr>
+<% @manages.each do |m| %>
+<tr>
+    <td><%= m.name %></td>
+    <td><%= m.place %></td>
+    <td><%= m.number %></td>
+    <td>
+        <button type="button" class="btn btn-outline-success"><%= link_to "変更", edit_manage_path(m.id) %></button>
+        <button type="button" class="btn btn-outline-danger"><%= link_to "削除", manage_path(m.id), method: :delete %></button>
+    </td>
+<tr>
+<% end %>
+</table>
+<div>
