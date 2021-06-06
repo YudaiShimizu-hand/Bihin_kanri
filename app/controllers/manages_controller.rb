@@ -9,8 +9,11 @@ class ManagesController < ApplicationController
 
     def create
         @manage = Manage.new(manage_params)
-        @manage.save
+        if @manage.save
         redirect_to manages_path, notice: "登録成功"
+        else
+            render 'new'
+        end
     end
 
     def show
@@ -23,8 +26,11 @@ class ManagesController < ApplicationController
 
     def update
         @manage = Manage.find(params[:id])
-        @manage.update(manage_params)
+        if @manage.update(manage_params)
         redirect_to manages_path
+        else
+            render 'edit'
+        end
     end
 
     def destroy

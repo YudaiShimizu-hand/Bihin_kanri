@@ -1,4 +1,13 @@
 <h3>備品の変更、更新</h3>
+<% if @manage.errors.any? %>
+    <div class="alert alert-warning">
+        <ul>
+            <% @manage.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
 <%= form_with model: @manage do |f| %>
     <%= f.label :備品名 %>
     </br>
