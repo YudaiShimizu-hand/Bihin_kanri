@@ -1,0 +1,26 @@
+<div class="container">
+<h3><%= @manage.name %>の詳細</h3>
+</br>
+<table>
+<tr>
+    <th>備品名</th>
+    <td><%= @manage.name %></td>
+</tr>
+<tr>
+    <th>収納場所</th>
+    <td><%= @manage.place %></td>
+</tr>
+<tr>
+    <th>数量</th>
+    <td><%= @manage.number %></td>
+</tr>
+<tr>
+    <th>最初の登録日</th>
+    <td><%= @manage.created_at %></td>
+</tr>
+<tr>
+    <th>登録更新日</th>
+    <td><%= @manage.updated_at %></td>
+</tr>
+</div>
+

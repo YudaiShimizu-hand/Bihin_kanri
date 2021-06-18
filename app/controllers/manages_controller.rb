@@ -1,6 +1,6 @@
 class ManagesController < ApplicationController
     def index
-        @manages = Manage.all
+        @manages = current_user.manages
     end
 
     def new
@@ -8,7 +8,7 @@ class ManagesController < ApplicationController
     end
 
     def create
-        @manage = Manage.new(manage_params)
+        @manage = current_user.manages.new(manage_params)
         if @manage.save
         redirect_to manages_path, notice: "登録成功"
         else
@@ -17,15 +17,15 @@ class ManagesController < ApplicationController
     end
 
     def show
-        @manage = Manage.find(params[:id])
+        @manage = current_user.manages.find(params[:id])
     end
 
     def edit
-        @manage = Manage.find(params[:id])
+        @manage = current_user.manages.find(params[:id])
     end
 
     def update
-        @manage = Manage.find(params[:id])
+        @manage = current_user.manages.find(params[:id])
         if @manage.update(manage_params)
         redirect_to manages_path
         else
@@ -34,7 +34,7 @@ class ManagesController < ApplicationController
     end
 
     def destroy
-        manage = Manage.find(params[:id])
+        @manage = current_user.manages.find(params[:id])
         manage.destroy
         redirect_to manages_path
     end
