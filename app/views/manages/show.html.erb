@@ -1,4 +1,12 @@
 <div class="container">
+<h4>メモフォーム</h4>
+ <%= form_with model: [@manage, Comment.new] do |f| %>
+   <%= f.text_area :body, class: 'form-control', id: 'comment_body' %>
+   <%= f.submit nil, class: 'btn btn-primary'%>
+ <% end %>
+</div>
+
+<div class="container">
 <h3><%= @manage.name %>の詳細</h3>
 </br>
 <table>
@@ -22,5 +30,19 @@
     <th>登録更新日</th>
     <td><%= @manage.updated_at %></td>
 </tr>
+<tr>
+    <th>メモ</th>
+    <td>
+        <ul>
+        <% @manage.comments.each do |comment| %>
+        <li>
+        <%= comment.body %>
+        </li>
+        <% end %>
+        </ul>
+    </td>
+</tr>
 </div>
+
+
 

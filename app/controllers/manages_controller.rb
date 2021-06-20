@@ -35,7 +35,7 @@ class ManagesController < ApplicationController
 
     def destroy
         @manage = current_user.manages.find(params[:id])
-        manage.destroy
+        @manage.destroy
         redirect_to manages_path
     end
 
