@@ -11,6 +11,23 @@
   </head>
 
   <body>
+     <header>
+        <nav class= "navbar navbar-dark bg-primary">
+        <h1 class= "navbar-brand">備品管理アプリ</h1>
+         <% if user_signed_in? %>
+          <%= link_to "トップ", pages_show_path, class: 'btn btn-dark' %>
+          <%= link_to "在庫管理リスト", manages_path, class: 'btn btn-warning' %>
+          <%= link_to "在庫登録フォーム", new_manage_path, class: 'btn btn-success' %>
+          <%= link_to 'プロフィール編集', edit_user_registration_path, class: 'btn btn-danger' %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-info' %>
+        <% else %>
+         <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-dark' %>
+         <%= link_to 'サインアップ', new_user_registration_path, class: 'btn btn-warning' %>
+        <% end %>
+       </nav>
+    </header>
+    <main>
     <%= yield %>
+    </main>
   </body>
 </html>

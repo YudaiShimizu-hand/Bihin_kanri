@@ -1,0 +1,28 @@
+<div class= "container">
+<h3>備品の追加</h3>
+<% if @manage.errors.any? %>
+    <div class="alert alert-warning">
+        <ul>
+            <% @manage.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+<%= form_with model: @manage do |f| %>
+    <%= f.label :備品名 %>
+    </br>
+    <%= f.text_field :name %>
+    </br>
+    <%= f.label :収納場所 %>
+    </br>
+    <%= f.text_field :place %>
+    </br>
+    <%= f.label :数量 %>
+    </br>
+    <%= f.number_field :number %>
+    </br>
+    </br>
+    <%= f.submit :保存, class: 'btn btn-primary' %>
+<% end %>
+</div>
